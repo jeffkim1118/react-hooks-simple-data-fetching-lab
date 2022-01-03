@@ -11,17 +11,13 @@ export default function App(){
         .then((res)=>res.json())
         .then((data)=>{
             setIsLoaded(true);
-            setItems(data.message);
+            setItems(data);
         });
-    })
+    }, [])
 
     if(!isLoaded){
         return <p>Loading...</p>
     }else{
-        <div>
-            {item.map(item =>(
-                <image src={item.message}></image>
-            ))}
-        </div>
+        return <div><img src={item.message} alt="A Random Dog" /></div>
     }
 }
